@@ -78,13 +78,13 @@
                         <!-- Top Content -->
                         <StackPanel Grid.Row="0">
                             <TextBlock Text="Welcome!" 
-                                       FontSize="60" 
+                                       FontSize="63" 
                                        FontWeight="Bold" 
                                        Margin="35,135,0,0" 
                                        Style="{StaticResource StandardTextBlock}"/>
-                            <Border Height="1" Background="Gray" Margin="30,5,150,15"/>
+                            <Border Height="1" Background="Gray" Margin="30,5,130,15"/>
                             <TextBlock Text="Welcome to the team." 
-                                       FontSize="20" 
+                                       FontSize="22" 
                                        Margin="35,5,0,0" 
                                        Style="{StaticResource StandardTextBlock}"/>
                             <Button Content="Log In" Margin="-195,13,0,0" Style="{StaticResource DeBtn}" Foreground="White"/>
@@ -124,9 +124,8 @@
                                     <TextBox Grid.Row="3"
                                       Style="{StaticResource WatermarkedTextBox}" Tag="Birthday"/>
                                     <ComboBox Grid.Row="4"
-                                      Style="{StaticResource StandardComboBox}"
+                                      Style="{StaticResource GenderComboBox}"
                                       SelectedIndex="0">
-                                        <ComboBoxItem Content="Select Gender" IsEnabled="False" Foreground="Gray"/>
                                         <ComboBoxItem Content="Male"/>
                                         <ComboBoxItem Content="Female"/>
                                     </ComboBox>
@@ -140,7 +139,6 @@
                                             VerticalAlignment="Bottom" 
                                             Margin="0,10,0,10"
                                             Style="{StaticResource DeBtn}"
-                                            Background="#243642"
                                             Foreground="White"
                                             Click="NextButton_Click"/>
                                 </Grid>
@@ -157,9 +155,8 @@
                                     </Grid.RowDefinitions>
                                     <!-- 1. Select Department -->
                                     <ComboBox Grid.Row="0" x:Name="DepartmentComboBox" 
-                                              Style="{StaticResource StandardComboBox}" 
+                                              Style="{StaticResource DepartmentComboBox}" 
                                               SelectedIndex="0">
-                                        <ComboBoxItem Content="Select Department" IsEnabled="False" Foreground="Gray"/>
                                         <ComboBoxItem Content="HR"/>
                                         <ComboBoxItem Content="Finance"/>
                                         <ComboBoxItem Content="IT"/>
@@ -169,9 +166,8 @@
                                     </ComboBox>
                                     <!-- 2. Select Position -->
                                     <ComboBox Grid.Row="1" x:Name="PositionComboBox" 
-                                              Style="{StaticResource StandardComboBox}" 
+                                              Style="{StaticResource PositionComboBox}"
                                               SelectedIndex="0">
-                                        <ComboBoxItem Content="Select Position" IsEnabled="False" Foreground="Gray"/>
                                         <ComboBoxItem Content="Manager"/>
                                         <ComboBoxItem Content="Analyst"/>
                                         <ComboBoxItem Content="Developer"/>
