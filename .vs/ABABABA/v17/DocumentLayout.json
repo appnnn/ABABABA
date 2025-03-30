@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -41,10 +41,6 @@
               "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "login.xaml.cs",
@@ -52,7 +48,7 @@
               "RelativeDocumentMoniker": "login\\WpfApp1\\login.xaml.cs",
               "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\ABABABA\\login\\WpfApp1\\login.xaml.cs",
               "RelativeToolTip": "login\\WpfApp1\\login.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAACgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-30T19:38:44.849Z",
               "EditorCaption": ""
@@ -78,8 +74,11 @@
               "ToolTip": "C:\\Users\\admin\\Documents\\GitHub\\ABABABA\\signup\\signup.xaml",
               "RelativeToolTip": "signup\\signup.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-30T19:35:01.964Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-30T19:35:01.964Z"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             }
           ]
         }
