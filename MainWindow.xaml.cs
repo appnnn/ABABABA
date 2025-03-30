@@ -38,7 +38,10 @@ public partial class MainWindow : Window
 
     private void Button_Click_1(object sender, RoutedEventArgs e)
     {
+        SignupWindow signUpWindow = new SignupWindow();
+        signUpWindow.Show();
 
+        this.Close();
     }
 
     private void TextBox_TextChanged_2(object sender, TextChangedEventArgs e)
