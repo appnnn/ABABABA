@@ -2,9 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\login",
-    "\\login\\WpfApp1",
-    "\\signup"
+    "\\login\\WpfApp1"
   ],
-  "SelectedNode": "\\login\\WpfApp1\\login.xaml",
+  "SelectedNode": "\\.gitignore",
   "PreviewInSolutionExplorer": false
 }
