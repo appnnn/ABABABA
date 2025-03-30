@@ -41,10 +41,10 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-    
+
     <Style x:Key="WatermarkedTextBox" TargetType="TextBox">
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="BorderBrush" Value="Gray"/>
+        <Setter Property="BorderBrush" Value="#7D7D7D"/>
         <Setter Property="BorderThickness" Value="0,0,0,1"/>
         <Setter Property="Padding" Value="5"/>
         <Setter Property="Margin" Value="0,0,0,25"/>
@@ -59,7 +59,7 @@
                             <ScrollViewer x:Name="PART_ContentHost" />
                             <TextBlock x:Name="Watermark"
                                        Text="{TemplateBinding Tag}"
-                                       Foreground="Gray"
+                                       Foreground="#7D7D7D"
                                        Margin="10,0,0,0"
                                        IsHitTestVisible="False"
                                        Visibility="Collapsed"
@@ -70,19 +70,16 @@
                         <Trigger Property="Text" Value="">
                             <Setter TargetName="Watermark" Property="Visibility" Value="Visible"/>
                         </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="Black"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Watermark" Property="Foreground" Value="Black"/>
+                        </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
-
-    <Style x:Key="StandardTextBox" TargetType="TextBox">
-        <Setter Property="Margin" Value="0,0,0,10"/>
-        <Setter Property="Padding" Value="5"/>
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="BorderBrush" Value="Gray"/>
-        <Setter Property="FontFamily" Value="Calibri"/>
-        <Setter Property="FontSize" Value="14"/>
     </Style>
 
     <Style x:Key="StandardTextBlock" TargetType="TextBlock">
@@ -118,7 +115,7 @@
     <Style x:Key="DeBtn" TargetType="Button" BasedOn="{StaticResource Button1}">
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="#19252E"/>
+                <Setter Property="Background" Value="Black"/>
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -158,7 +155,8 @@
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="FontFamily" Value="Calibri"/>
         <Setter Property="Padding" Value="5"/>
-        <Setter Property="BorderBrush" Value="Gray"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="BorderBrush" Value="#7D7D7D"/>
         <Setter Property="BorderThickness" Value="0,0,0,1"/>
         <Setter Property="Margin" Value="0,0,0,25"/>
         <Setter Property="Background" Value="Transparent"/>
@@ -169,7 +167,7 @@
                     <Grid>
                         <TextBlock x:Name="WatermarkText"
                                 Text="{TemplateBinding Tag}"
-                                Foreground="Gray"
+                                Foreground="#7D7D7D"
                                 VerticalAlignment="Center"
                                 Margin="10,0,30,0"
                                 Visibility="Visible"/>
@@ -177,15 +175,18 @@
                         BorderThickness="{TemplateBinding BorderThickness}" 
                         Background="{TemplateBinding Background}">
                             <Grid>
-                                <ComboBoxItem Foreground="Black"/>
+                                <ComboBoxItem Foreground="Black" FocusVisualStyle="{x:Null}"/>
                                 <ContentPresenter Margin="5,0,30,0" 
                                             VerticalAlignment="Center"/>
-                                <ToggleButton Grid.Column="1" 
-                                        Background="Transparent" 
-                                        BorderThickness="0" 
-                                        HorizontalAlignment="Right">
-                                    <Image Source="/Images/down.png" 
-                                    Width="12" Height="12" Opacity="0.5"/>
+                                <ToggleButton x:Name="DropDownButton"
+                                              Grid.Column="1" 
+                                              Background="Transparent" 
+                                              BorderThickness="0" 
+                                              HorizontalAlignment="Right"
+                                              FocusVisualStyle="{x:Null}">
+                                    <Image x:Name="DropDownImage"
+                                           Source="/Images/down.png" 
+                                           Width="12" Height="12" Opacity="0.5"/>
                                 </ToggleButton>
                             </Grid>
                         </Border>
@@ -202,6 +203,11 @@
                         </Trigger>
                         <Trigger Property="SelectedIndex" Value="2">
                             <Setter TargetName="WatermarkText" Property="Visibility" Value="Collapsed"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="Black"/>
+                            <Setter TargetName="WatermarkText" Property="Foreground" Value="Black"/>
+                            <Setter TargetName="DropDownImage" Property="Opacity" Value="1"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

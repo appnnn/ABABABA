@@ -82,7 +82,7 @@
                                        FontWeight="Bold" 
                                        Margin="35,135,0,0" 
                                        Style="{StaticResource StandardTextBlock}"/>
-                            <Border Height="1" Background="Gray" Margin="30,5,130,15"/>
+                            <Border Height="1" Background="#7D7D7D" Margin="30,5,130,15"/>
                             <TextBlock Text="Welcome to the team." 
                                        FontSize="22" 
                                        Margin="35,5,0,0" 
