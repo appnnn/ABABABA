@@ -124,9 +124,8 @@
                                     <TextBox Grid.Row="3"
                                       Style="{StaticResource WatermarkedTextBox}" Tag="Birthday"/>
                                     <ComboBox Grid.Row="4"
-                                      Style="{StaticResource StandardComboBox}"
+                                      Style="{StaticResource GenderComboBox}"
                                       SelectedIndex="0">
-                                        <ComboBoxItem Content="Select Gender" IsEnabled="False" Foreground="Gray"/>
                                         <ComboBoxItem Content="Male"/>
                                         <ComboBoxItem Content="Female"/>
                                     </ComboBox>
@@ -156,9 +155,8 @@
                                     </Grid.RowDefinitions>
                                     <!-- 1. Select Department -->
                                     <ComboBox Grid.Row="0" x:Name="DepartmentComboBox" 
-                                              Style="{StaticResource StandardComboBox}" 
+                                              Style="{StaticResource DepartmentComboBox}" 
                                               SelectedIndex="0">
-                                        <ComboBoxItem Content="Select Department" IsEnabled="False" Foreground="Gray"/>
                                         <ComboBoxItem Content="HR"/>
                                         <ComboBoxItem Content="Finance"/>
                                         <ComboBoxItem Content="IT"/>
@@ -168,9 +166,8 @@
                                     </ComboBox>
                                     <!-- 2. Select Position -->
                                     <ComboBox Grid.Row="1" x:Name="PositionComboBox" 
-                                              Style="{StaticResource StandardComboBox}" 
+                                              Style="{StaticResource PositionComboBox}"
                                               SelectedIndex="0">
-                                        <ComboBoxItem Content="Select Position" IsEnabled="False" Foreground="Gray"/>
                                         <ComboBoxItem Content="Manager"/>
                                         <ComboBoxItem Content="Analyst"/>
                                         <ComboBoxItem Content="Developer"/>
