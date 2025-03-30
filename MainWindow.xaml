@@ -78,13 +78,13 @@
                         <!-- Top Content -->
                         <StackPanel Grid.Row="0">
                             <TextBlock Text="Welcome!" 
-                                       FontSize="60" 
+                                       FontSize="63" 
                                        FontWeight="Bold" 
                                        Margin="35,135,0,0" 
                                        Style="{StaticResource StandardTextBlock}"/>
-                            <Border Height="1" Background="Gray" Margin="30,5,150,15"/>
+                            <Border Height="1" Background="Gray" Margin="30,5,130,15"/>
                             <TextBlock Text="Welcome to the team." 
-                                       FontSize="20" 
+                                       FontSize="22" 
                                        Margin="35,5,0,0" 
                                        Style="{StaticResource StandardTextBlock}"/>
                             <Button Content="Log In" Margin="-195,13,0,0" Style="{StaticResource DeBtn}" Foreground="White"/>
