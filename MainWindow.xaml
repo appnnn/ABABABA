@@ -87,7 +87,7 @@
                                        FontSize="20" 
                                        Margin="35,5,0,0" 
                                        Style="{StaticResource StandardTextBlock}"/>
-                            <Button Content="Log In" Margin="-195,13,0,0" Style="{StaticResource Button}" Background="#243642" Foreground="White"/>
+                            <Button Content="Log In" Margin="-195,13,0,0" Style="{StaticResource DeBtn}" Foreground="White"/>
                         </StackPanel>
                     </Grid>
 
@@ -139,7 +139,7 @@
                                             Grid.Row="6"
                                             VerticalAlignment="Bottom" 
                                             Margin="0,10,0,10"
-                                            Style="{StaticResource Button}"
+                                            Style="{StaticResource DeBtn}"
                                             Background="#243642"
                                             Foreground="White"
                                             Click="NextButton_Click"/>
@@ -196,8 +196,8 @@
                                              Tag="Confirm Password"
                                              Margin="0,0,0,30"/>
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="6">
-                                        <Button Content="Back" Style="{StaticResource Button}"  Background="#D6DEE5" Foreground="Black" Click="BackButton_Click" Margin="0,10,25,10"/>
-                                        <Button Content="Submit" Style="{StaticResource Button}" Background="#243642" Foreground="White" Margin="0,10,0,10" Click="SubmitButton_Click"/>
+                                        <Button Content="Back" Style="{StaticResource BackBtn}" Foreground="Black" Click="BackButton_Click" Margin="0,10,25,10"/>
+                                        <Button Content="Submit" Style="{StaticResource DeBtn}" Foreground="White" Margin="0,10,0,10" Click="SubmitButton_Click"/>
                                     </StackPanel>
                                 </Grid>
 

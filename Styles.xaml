@@ -41,7 +41,7 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-
+    
     <Style x:Key="WatermarkedTextBox" TargetType="TextBox">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Gray"/>
@@ -92,11 +92,12 @@
         <Setter Property="Margin" Value="0,0,0,10"/>
     </Style>
 
-    <Style x:Key="Button" TargetType="Button">
+    <Style x:Key="Button1" TargetType="Button">
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="FontFamily" Value="Calibri"/>
-        <Setter Property="Width" Value="100"></Setter>
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="Background" Value="#243642"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
@@ -112,6 +113,45 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <Style x:Key="DeBtn" TargetType="Button" BasedOn="{StaticResource Button1}">
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#19252E"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="Button2" TargetType="Button">
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontFamily" Value="Calibri"/>
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="Background" Value="#D6DEE5"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border" 
+                Background="{TemplateBinding Background}" 
+                BorderBrush="{TemplateBinding BorderBrush}" 
+                BorderThickness="{TemplateBinding BorderThickness}"
+                CornerRadius="20"
+                Height="45">
+                        <ContentPresenter HorizontalAlignment="Center"
+                          VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="BackBtn" TargetType="Button" BasedOn="{StaticResource Button2}">
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#C0C7CE"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
     <Style x:Key="StandardComboBox" TargetType="ComboBox">
