@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ABABABA.SignupWindow;
 
 namespace WpfApp1;
 
@@ -38,7 +39,10 @@ public partial class MainWindow : Window
 
     private void Button_Click_1(object sender, RoutedEventArgs e)
     {
+        SignupWindow signupWindow = new SignupWindow();
+        signupWindow.Show();
 
+        this.Close();
     }
 
     private void TextBox_TextChanged_2(object sender, TextChangedEventArgs e)
