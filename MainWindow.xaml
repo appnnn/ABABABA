@@ -140,7 +140,6 @@
                                             VerticalAlignment="Bottom" 
                                             Margin="0,10,0,10"
                                             Style="{StaticResource DeBtn}"
-                                            Background="#243642"
                                             Foreground="White"
                                             Click="NextButton_Click"/>
                                 </Grid>
