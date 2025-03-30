@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\947757aa4f401c5c46d196283a55c386.png" />
+    <None Remove="Assets\c0e442423a5dde61b9fa68e858ed26f8.png" />
+    <None Remove="moai-emoji.png" />
+    <None Remove="—Pngtree—business office team meeting project_7183397.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\947757aa4f401c5c46d196283a55c386.png" />
+    <Resource Include="Assets\c0e442423a5dde61b9fa68e858ed26f8.png" />
+    <Resource Include="Assets\moai-emoji.png" />
+    <Resource Include="Assets\—Pngtree—business office team meeting project_7183397.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>
