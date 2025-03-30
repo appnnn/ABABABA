@@ -168,7 +168,7 @@
                 <ControlTemplate TargetType="ComboBox">
                     <Grid>
                         <TextBlock x:Name="WatermarkText"
-                                Text="Select Gender"
+                                Text="{TemplateBinding Tag}"
                                 Foreground="Gray"
                                 VerticalAlignment="Center"
                                 Margin="10,0,30,0"
@@ -207,6 +207,18 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <Style x:Key="GenderComboBox" TargetType="ComboBox" BasedOn="{StaticResource StandardComboBox}">
+        <Setter Property="Tag" Value="Select Gender"/>
+    </Style>
+
+    <Style x:Key="DepartmentComboBox" TargetType="ComboBox" BasedOn="{StaticResource StandardComboBox}">
+        <Setter Property="Tag" Value="Select Department"/>
+    </Style>
+
+    <Style x:Key="PositionComboBox" TargetType="ComboBox" BasedOn="{StaticResource StandardComboBox}">
+        <Setter Property="Tag" Value="Select Position"/>
     </Style>
 
     <Style x:Key="WatermarkedPasswordBox" TargetType="PasswordBox">
