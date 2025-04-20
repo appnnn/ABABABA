@@ -82,6 +82,51 @@
         </Setter>
     </Style>
 
+    <Style x:Key="WatermarkedPasswordBox" TargetType="PasswordBox"
+       xmlns:local="clr-namespace:WpfApp1">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="#7D7D7D"/>
+        <Setter Property="BorderThickness" Value="0,0,0,1"/>
+        <Setter Property="Padding" Value="5"/>
+        <Setter Property="Margin" Value="0,0,0,25"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="PasswordBox">
+                    <Border Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                        <Grid>
+                            <TextBlock x:Name="Watermark"
+                                   Text="{TemplateBinding Tag}"
+                                   Foreground="#7D7D7D"
+                                   Margin="10,0,0,0"
+                                   IsHitTestVisible="False"
+                                   Visibility="Collapsed"
+                                   VerticalAlignment="Center"/>
+                            <ScrollViewer x:Name="PART_ContentHost" />
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="Black"/>
+                            <Setter TargetName="Watermark" Property="Foreground" Value="Black"/>
+                        </Trigger>
+                        <!-- Show Watermark if password is empty -->
+                        <DataTrigger Binding="{Binding Path=(local:PasswordBoxHelper.Password), RelativeSource={RelativeSource Self}}" Value="">
+                            <Setter TargetName="Watermark" Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=(local:PasswordBoxHelper.Password), RelativeSource={RelativeSource Self}}" Value="{x:Null}">
+                            <Setter TargetName="Watermark" Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
     <Style x:Key="StandardTextBlock" TargetType="TextBlock">
         <Setter Property="FontFamily" Value="Calibri"/>
         <Setter Property="FontSize" Value="14"/>
@@ -225,40 +270,6 @@
 
     <Style x:Key="PositionComboBox" TargetType="ComboBox" BasedOn="{StaticResource StandardComboBox}">
         <Setter Property="Tag" Value="Select Position"/>
-    </Style>
-
-    <Style x:Key="WatermarkedPasswordBox" TargetType="PasswordBox">
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="BorderBrush" Value="Gray"/>
-        <Setter Property="BorderThickness" Value="0,0,0,1"/>
-        <Setter Property="Padding" Value="5"/>
-        <Setter Property="Margin" Value="0,0,0,25"/>
-        <Setter Property="Height" Value="30"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="TextBox">
-                    <Border Background="{TemplateBinding Background}" 
-                        BorderBrush="{TemplateBinding BorderBrush}" 
-                        BorderThickness="{TemplateBinding BorderThickness}">
-                        <Grid>
-                            <ScrollViewer x:Name="PART_ContentHost" />
-                            <TextBlock x:Name="Watermark"
-                                   Text="{TemplateBinding Tag}"
-                                   Foreground="Gray"
-                                   Margin="10,0,0,0"
-                                   IsHitTestVisible="False"
-                                   Visibility="Collapsed"
-                                   VerticalAlignment="Center"/>
-                        </Grid>
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="Text" Value="">
-                            <Setter TargetName="Watermark" Property="Visibility" Value="Visible"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
     </Style>
 
     <Style x:Key="WatermarkedDatePicker" TargetType="DatePicker">

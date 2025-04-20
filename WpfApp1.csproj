@@ -21,6 +21,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Assets\947757aa4f401c5c46d196283a55c386.png" />
     <Resource Include="Assets\c0e442423a5dde61b9fa68e858ed26f8.png" />
     <Resource Include="Assets\moai-emoji.png" />

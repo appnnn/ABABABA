@@ -184,17 +184,23 @@
                                              Style="{StaticResource WatermarkedTextBox}" 
                                              Tag="Email Address"/>
                                     <!-- 5. Password -->
-                                    <TextBox Grid.Row="4" x:Name="PasswordBox" 
-                                                 Style="{StaticResource WatermarkedTextBox}" 
-                                                 Tag="Password" />
+                                    <PasswordBox Grid.Row="4" x:Name="PasswordBox" 
+                                                 Style="{StaticResource WatermarkedPasswordBox}" 
+                                                 Tag="Password" PasswordChar="*"
+                                                 local:PasswordBoxHelper.Attach="True"
+                                                 local:PasswordBoxHelper.Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
                                     <!-- 6. Confirm Password -->
-                                    <TextBox Grid.Row="5" x:Name="ConfirmPasswordBox" 
-                                             Style="{StaticResource WatermarkedTextBox}" 
+                                    <PasswordBox Grid.Row="5" x:Name="ConfirmPasswordBox" 
+                                             Style="{StaticResource WatermarkedPasswordBox}" 
                                              Tag="Confirm Password"
-                                             Margin="0,0,0,30"/>
+                                             Margin="0,0,0,30" PasswordChar="*"
+                                             local:PasswordBoxHelper.Attach="True"
+                                             local:PasswordBoxHelper.Password="{Binding ConfirmPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                                    <!-- Show Password Checkbox -->
+                                   
                                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="6">
-                                        <Button Content="Back" Style="{StaticResource BackBtn}" Foreground="Black" Click="BackButton_Click" Margin="0,10,25,10"/>
-                                        <Button Content="Submit" Style="{StaticResource DeBtn}" Foreground="White" Margin="0,10,0,10" Click="SubmitButton_Click"/>
+                                        <Button Content="Back" Style="{StaticResource BackBtn}" Foreground="Black" Click="BackButton_Click" Margin="0,10,25,10" />
+                                        <Button Content="Submit" Style="{StaticResource DeBtn}" Foreground="White" Margin="0,10,0,10" Click="SubmitButton_Click" />
                                     </StackPanel>
                                 </Grid>
 
