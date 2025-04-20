@@ -68,151 +68,73 @@
                 </Border>
 
                 <Grid Grid.Row="1" Margin="5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
 
-                    <!-- Left Column -->
-                    <Grid Grid.Column="0" Margin="10,0,10,5">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        <!-- Top Content -->
-                        <StackPanel Grid.Row="0">
-                            <TextBlock Text="Welcome!" 
-                                       FontSize="63" 
-                                       FontWeight="Bold" 
-                                       Margin="35,135,0,0" 
-                                       Style="{StaticResource StandardTextBlock}"/>
-                            <Border Height="1" Background="#7D7D7D" Margin="30,5,130,15"/>
-                            <TextBlock Text="Welcome to the team." 
-                                       FontSize="22" 
-                                       Margin="35,5,0,0" 
-                                       Style="{StaticResource StandardTextBlock}"/>
-                            <Button Content="Log In" Margin="-195,13,0,0" Style="{StaticResource DeBtn}" Foreground="White" Click="LoginButton_Click"/>
+                    <!-- Register Heading -->
+                    <TextBlock Text="Register"
+                               FontSize="30"
+                               FontWeight="Bold"
+                               HorizontalAlignment="Left"
+                               VerticalAlignment="Top"
+                               Margin="10,5,0,10" />   
+
+                    <!-- Registration Form Layout -->
+                    <Grid Grid.Row="1" Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Column 1: Step 1 Fields -->
+                        <StackPanel Grid.Column="0" Margin="5,10,20,10">
+                            <TextBox x:Name="FirstnameTextBox" Style="{StaticResource WatermarkedTextBox}" Tag="First Name" Margin="0,0,0,20"/>
+                            <TextBox x:Name="LastNameTextBox" Style="{StaticResource WatermarkedTextBox}" Tag="Last Name" Margin="0,0,0,20"/>
+                            <TextBox x:Name="AddressTextBox" Style="{StaticResource WatermarkedTextBox}" Tag="Address" Margin="0,0,0,20"/>
+                            <TextBox x:Name="BirthdayTextBox" Style="{StaticResource WatermarkedTextBox}" Tag="Birthday" Margin="0,0,0,20"/>
+                            <ComboBox x:Name="GenderComboBox" Style="{StaticResource GenderComboBox}" MaxDropDownHeight="100" SelectedIndex="0" Margin="0,0,0,20">
+                                <ComboBoxItem Content="Male"/>
+                                <ComboBoxItem Content="Female"/>
+                            </ComboBox>
+                            <TextBox x:Name="PhoneNumberTextBox" Style="{StaticResource WatermarkedTextBox}" Tag="Phone Number"/>
+                        </StackPanel>
+
+                        <!-- Column 2: Step 2 Fields -->
+                        <StackPanel Grid.Column="1" Margin="20,10,5,10">
+                            <ComboBox x:Name="DepartmentComboBox" Style="{StaticResource DepartmentComboBox}" SelectedIndex="0" Margin="0,0,0,20">
+                                <ComboBoxItem Content="HR"/>
+                                <ComboBoxItem Content="Finance"/>
+                                <ComboBoxItem Content="IT"/>
+                                <ComboBoxItem Content="Marketing"/>
+                                <ComboBoxItem Content="Operations"/>
+                                <ComboBoxItem Content="Sales"/>
+                            </ComboBox>
+                            <ComboBox x:Name="PositionComboBox" MaxDropDownHeight="200" Style="{StaticResource PositionComboBox}" SelectedIndex="0" Margin="0,0,0,20">
+                                <ComboBoxItem Content="Analyst"/>
+                                <ComboBoxItem Content="Developer"/>
+                                <ComboBoxItem Content="Designer"/>
+                                <ComboBoxItem Content="Consultant"/>
+                                <ComboBoxItem Content="Intern"/>
+                            </ComboBox>
+                            <TextBox x:Name="JoinedDatePicker" Style="{StaticResource WatermarkedTextBox}" Tag="Joined Date" Margin="0,0,0,20"/>
+                            <TextBox x:Name="EmailAddressTextBox" Style="{StaticResource WatermarkedTextBox}" Tag="Email Address" Margin="0,0,0,20"/>
+                            <PasswordBox x:Name="PasswordBox" Style="{StaticResource WatermarkedPasswordBox}" Tag="Password" PasswordChar="*" 
+                         local:PasswordBoxHelper.Attach="True" 
+                         local:PasswordBoxHelper.Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,20"/>
+                            <PasswordBox x:Name="ConfirmPasswordBox" Style="{StaticResource WatermarkedPasswordBox}" Tag="Confirm Password" PasswordChar="*" 
+                         local:PasswordBoxHelper.Attach="True" 
+                         local:PasswordBoxHelper.Password="{Binding ConfirmPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,20"/>
                         </StackPanel>
                     </Grid>
 
-                    <Grid Grid.Column="1" Margin="65,0,35,5">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="*"/>
-                            </Grid.RowDefinitions>
-                            <TextBlock Text="Register" 
-                                       Grid.Row="0"
-                                       FontSize="30" 
-                                       FontWeight="Bold" 
-                                       HorizontalAlignment="Center" 
-                                       Margin="0,15,0,7"/>
-                            <Grid x:Name="RegistrationContainer" Grid.Row="1" Margin="0,20,0,0">
-                                <Grid x:Name="RegistrationStepOne" Visibility="Visible">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                    </Grid.RowDefinitions>
-
-                                    <TextBox Grid.Row="0" 
-                                     Style="{StaticResource WatermarkedTextBox}" Tag="First Name"/>
-                                    <TextBox Grid.Row="1" 
-                                        Style="{StaticResource WatermarkedTextBox}" Tag="Last Name"/>
-                                    <TextBox Grid.Row="2"
-                                    Style="{StaticResource WatermarkedTextBox}" Tag="Address"/>
-                                    <TextBox Grid.Row="3"
-                                      Style="{StaticResource WatermarkedTextBox}" Tag="Birthday"/>
-                                    <ComboBox Grid.Row="4"
-                                      Style="{StaticResource GenderComboBox}"
-                                      MaxDropDownHeight="100" 
-                                      SelectedIndex="0">
-                                        <ComboBoxItem Content="Male"/>
-                                        <ComboBoxItem Content="Female"/>
-                                    </ComboBox>
-                                    <TextBox Grid.Row="5"
-                                             Style="{StaticResource WatermarkedTextBox}" Tag="Phone Number"
-                                             Margin="0,0,0,30"/>
-
-                                    <Button Content="Next" 
-                                            HorizontalAlignment="Right" 
-                                            Grid.Row="6"
-                                            VerticalAlignment="Bottom" 
-                                            Margin="0,10,0,10"
-                                            Style="{StaticResource DeBtn}"
-                                            Foreground="White"
-                                            Click="NextButton_Click"/>
-                                </Grid>
-
-                                <Grid x:Name="RegistrationStepTwo" Visibility="Collapsed">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                        <RowDefinition Height="Auto"/>
-                                    </Grid.RowDefinitions>
-                                    <!-- 1. Select Department -->
-                                    <ComboBox Grid.Row="0" x:Name="DepartmentComboBox" 
-                                              Style="{StaticResource DepartmentComboBox}" 
-                                              SelectedIndex="0">
-                                        <ComboBoxItem Content="HR"/>
-                                        <ComboBoxItem Content="Finance"/>
-                                        <ComboBoxItem Content="IT"/>
-                                        <ComboBoxItem Content="Marketing"/>
-                                        <ComboBoxItem Content="Operations"/>
-                                        <ComboBoxItem Content="Sales"/>
-                                    </ComboBox>
-                                    <!-- 2. Select Position -->
-                                    <ComboBox Grid.Row="1" x:Name="PositionComboBox"
-                                              MaxDropDownHeight="200" 
-                                              Style="{StaticResource PositionComboBox}"
-                                              SelectedIndex="0">
-                                        <ComboBoxItem Content="Manager"/>
-                                        <ComboBoxItem Content="Analyst"/>
-                                        <ComboBoxItem Content="Developer"/>
-                                        <ComboBoxItem Content="Designer"/>
-                                        <ComboBoxItem Content="Consultant"/>
-                                        <ComboBoxItem Content="Intern"/>
-                                    </ComboBox>
-                                    <!-- 3. Joined Date using a DatePicker -->
-                                    <TextBox Grid.Row="2" x:Name="JoinedDatePicker"
-                                                Style="{StaticResource WatermarkedTextBox}" Tag="Joined Date"/>
-                                    <!-- 4. Email Address -->
-                                    <TextBox Grid.Row="3" x:Name="EmailAddressTextBox" 
-                                             Style="{StaticResource WatermarkedTextBox}" 
-                                             Tag="Email Address"/>
-                                    <!-- 5. Password -->
-                                    <PasswordBox Grid.Row="4" x:Name="PasswordBox" 
-                                                 Style="{StaticResource WatermarkedPasswordBox}" 
-                                                 Tag="Password" PasswordChar="*"
-                                                 local:PasswordBoxHelper.Attach="True"
-                                                 local:PasswordBoxHelper.Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                                    <!-- 6. Confirm Password -->
-                                    <PasswordBox Grid.Row="5" x:Name="ConfirmPasswordBox" 
-                                             Style="{StaticResource WatermarkedPasswordBox}" 
-                                             Tag="Confirm Password"
-                                             Margin="0,0,0,30" PasswordChar="*"
-                                             local:PasswordBoxHelper.Attach="True"
-                                             local:PasswordBoxHelper.Password="{Binding ConfirmPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-                                    <!-- Show Password Checkbox -->
-                                   
-                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Row="6">
-                                        <Button Content="Back" Style="{StaticResource BackBtn}" Foreground="Black" Click="BackButton_Click" Margin="0,10,25,10" />
-                                        <Button Content="Submit" Style="{StaticResource DeBtn}" Foreground="White" Margin="0,10,0,10" Click="SubmitButton_Click" />
-                                    </StackPanel>
-                                </Grid>
-
-                            </Grid>
-                        </Grid>
-                    </Grid>
+                    <!-- Submit Button -->
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,20" Grid.Row="1">
+                        <Button Content="Submit" Width="100" Margin="5" Click="SubmitButton_Click" Style="{StaticResource DeBtn}" Foreground="White"/>
+                    </StackPanel>
                 </Grid>
+
             </Grid>
         </Border>
     </Border>

@@ -28,14 +28,6 @@ namespace WpfApp1
             InitializeComponent();
         }
 
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow loginWindow = new MainWindow();
-            loginWindow.Show();
-
-            this.Close();
-        }
-
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
@@ -52,20 +44,29 @@ namespace WpfApp1
             Application.Current.Shutdown();
         }
 
-        private void NextButton_Click(object sender, RoutedEventArgs e)
+        // Submit button click handler: Process the registration.
+        private void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
-            string firstName = ((TextBox)RegistrationStepOne.Children[0]).Text.Trim();
-            string lastName = ((TextBox)RegistrationStepOne.Children[1]).Text.Trim();
-            string address = ((TextBox)RegistrationStepOne.Children[2]).Text.Trim();
-            string birthday = ((TextBox)RegistrationStepOne.Children[3]).Text.Trim();
-            string gender = ((ComboBox)RegistrationStepOne.Children[4]).Text;
-            string phone = ((TextBox)RegistrationStepOne.Children[5]).Text.Trim();
+            string firstName = FirstnameTextBox.Text.Trim();
+            string lastName = LastNameTextBox.Text.Trim();
+            string address = AddressTextBox.Text.Trim();
+            string birthday = BirthdayTextBox.Text.Trim();
+            string gender = GenderComboBox.Text;
+            string phone = PhoneNumberTextBox.Text.Trim();
+            string department = DepartmentComboBox.Text;
+            string position = PositionComboBox.Text;
+            string joinDate = JoinedDatePicker.Text.Trim();
+            string email = EmailAddressTextBox.Text.Trim();
+            string password = PasswordBox.Password;
+            string confirmPassword = ConfirmPasswordBox.Password;
 
             if (string.IsNullOrEmpty(firstName) || string.IsNullOrEmpty(lastName) ||
                 string.IsNullOrEmpty(address) || string.IsNullOrEmpty(birthday) ||
-                string.IsNullOrEmpty(gender) || string.IsNullOrEmpty(phone))
+                string.IsNullOrEmpty(gender) || string.IsNullOrEmpty(phone) || string.IsNullOrEmpty(department) || string.IsNullOrEmpty(position) ||
+                string.IsNullOrEmpty(joinDate) || string.IsNullOrEmpty(email) ||
+                string.IsNullOrEmpty(password) || string.IsNullOrEmpty(confirmPassword))
             {
-                MessageBox.Show("Please fill in all fields in Step 1.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Please fill in all fields.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
@@ -91,39 +92,6 @@ namespace WpfApp1
                 return;
             }
 
-            RegistrationStepOne.Visibility = Visibility.Collapsed;
-            RegistrationStepTwo.Visibility = Visibility.Visible;
-        }
-
-
-
-
-        // Back button click handler: Return to Step One.
-        private void BackButton_Click(object sender, RoutedEventArgs e)
-        {
-            RegistrationStepTwo.Visibility = Visibility.Collapsed;
-            RegistrationStepOne.Visibility = Visibility.Visible;
-        }
-
-        // Submit button click handler: Process the registration.
-        private void SubmitButton_Click(object sender, RoutedEventArgs e)
-        {
-            string department = DepartmentComboBox.Text;
-            string position = PositionComboBox.Text;
-            string joinDate = JoinedDatePicker.Text.Trim();
-            string email = EmailAddressTextBox.Text.Trim();
-            string password = PasswordBox.Password;
-            string confirmPassword = ConfirmPasswordBox.Password;
-
-            // Validate Step 2 fields
-            if (string.IsNullOrEmpty(department) || string.IsNullOrEmpty(position) ||
-                string.IsNullOrEmpty(joinDate) || string.IsNullOrEmpty(email) ||
-                string.IsNullOrEmpty(password) || string.IsNullOrEmpty(confirmPassword))
-            {
-                MessageBox.Show("Please fill in all fields in Step 2.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
             // Validate joined date format and year
             if (!DateTime.TryParse(joinDate, out DateTime parsedJoinDate))
             {
@@ -131,7 +99,7 @@ namespace WpfApp1
                 return;
             }
 
-            if (parsedJoinDate.Year < 1930 || parsedJoinDate.Year > 2009)
+            if (parsedJoinDate.Year < year || parsedJoinDate.Year > DateTime.Today.Year)
             {
                 MessageBox.Show("Join Date year must be between 1930 and 2009.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
@@ -159,13 +127,6 @@ namespace WpfApp1
                 MessageBox.Show("Passwords do not match.", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
-
-            string firstName = ((TextBox)RegistrationStepOne.Children[0]).Text.Trim();
-            string lastName = ((TextBox)RegistrationStepOne.Children[1]).Text.Trim();
-            string address = ((TextBox)RegistrationStepOne.Children[2]).Text.Trim();
-            string birthday = ((TextBox)RegistrationStepOne.Children[3]).Text.Trim();
-            string gender = ((ComboBox)RegistrationStepOne.Children[4]).Text;
-            string phone = ((TextBox)RegistrationStepOne.Children[5]).Text.Trim();
 
             // Insert into DB
             try
