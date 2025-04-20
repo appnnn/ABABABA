@@ -11,7 +11,7 @@ namespace WpfApp1
 {
     public partial class ApproveLeaveRequestsWindow : Window
     {
-        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\admin\Documents\LeaveRequests.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection connection = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\admin\Documents\ApproveRequests.mdf;Integrated Security=True;Connect Timeout=30");
         ObservableCollection<LeaveRequest> leaveRequests = new ObservableCollection<LeaveRequest>();
 
         public ApproveLeaveRequestsWindow()
@@ -50,10 +50,11 @@ namespace WpfApp1
                     leaveRequests.Add(new LeaveRequest
                     {
                         Id = Convert.ToInt32(reader["id"]),
-                        EmployeeName = reader["employee_name"].ToString(),
-                        LeaveType = reader["leave_type"].ToString(),
-                        RequestedDays = Convert.ToInt32(reader["requested_days"]),
-                        LeaveDates = reader["leave_dates"].ToString()
+                        EmployeeId = Convert.ToInt32(reader["employee_id"]),
+                        EmployeeName = reader["name"].ToString(),
+                        LeaveType = reader["leavetype"].ToString(),
+                        RequestedDays = Convert.ToInt32(reader["numberofleaves"]),
+                        LeaveDates = reader["datesofleaves"].ToString()
                     });
                 }
 
@@ -78,19 +79,47 @@ namespace WpfApp1
                     {
                         connection.Open();
 
-                        // Update employee's leave balance here (example logic, can be expanded)
-                        SqlCommand updateLeaveCmd = new SqlCommand("UPDATE employees SET annual_leaves = annual_leaves - @days WHERE employee_name = @name", connection);
+                        // Determine which column to update based on LeaveType
+                        string leaveColumn = selectedRequest.LeaveType.ToLower() switch
+                        {
+                            "sick leave" => "sick_leaves",
+                            "annual leave" => "annual_leaves",
+                            "paternity leave" => "paternity_leaves",
+                            "maternity leave" => "maternity_leaves",
+                            "bereavement leave" => "bereavement_leaves",
+                            "short leave" => "short_leaves",
+                            _ => null
+                        };
+
+                        if (leaveColumn == null)
+                        {
+                            MessageBox.Show("Invalid leave type.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            return;
+                        }
+
+                        // 1. Deduct from the specific leave column in leaves table
+                        string updateLeaveSql = $@"
+                                    UPDATE leaves
+                                    SET {leaveColumn} = {leaveColumn} - @days
+                                    WHERE employee_id = @empId";
+
+                        SqlCommand updateLeaveCmd = new SqlCommand(updateLeaveSql, connection);
                         updateLeaveCmd.Parameters.AddWithValue("@days", selectedRequest.RequestedDays);
-                        updateLeaveCmd.Parameters.AddWithValue("@name", selectedRequest.EmployeeName);
+                        updateLeaveCmd.Parameters.AddWithValue("@empId", selectedRequest.EmployeeId);
                         updateLeaveCmd.ExecuteNonQuery();
 
-                        // Delete from leave requests table after approval
+
+                        // 3. Remove the request from leavereqs
                         SqlCommand deleteCmd = new SqlCommand("DELETE FROM leavereqs WHERE id = @id", connection);
                         deleteCmd.Parameters.AddWithValue("@id", selectedRequest.Id);
                         deleteCmd.ExecuteNonQuery();
 
-                        MessageBox.Show("Leave request approved.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBox.Show("Leave request approved and leave balance updated.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                         leaveRequests.Remove(selectedRequest);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error while processing request: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                     finally
                     {
@@ -99,6 +128,7 @@ namespace WpfApp1
                 }
             }
         }
+
 
         private void Reject_Click(object sender, RoutedEventArgs e)
         {
@@ -130,6 +160,7 @@ namespace WpfApp1
     public class LeaveRequest
     {
         public int Id { get; set; }
+        public int EmployeeId { get; set; }
         public string EmployeeName { get; set; }
         public string LeaveType { get; set; }
         public int RequestedDays { get; set; }

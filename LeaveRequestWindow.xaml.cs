@@ -115,8 +115,7 @@ namespace WpfApp1
             int requestedCount = selectedDates.Count;
             if (!remainingLeaves.ContainsKey(selectedType) || requestedCount > remainingLeaves[selectedType])
             {
-                MessageBox.Show("Requested leaves exceed available balance.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
+                MessageBox.Show("Requested leaves exceed available balance.", "Warning", MessageBoxButton.OK, MessageBoxImage.Error);
             }
 
             try

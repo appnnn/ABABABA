@@ -38,7 +38,7 @@ public partial class MainWindow : Window
 
     private void Button_Click_1(object sender, RoutedEventArgs e)
     {
-        ApproveLeaveRequestsWindow signUpWindow = new ApproveLeaveRequestsWindow();
+        LeaveRequestWindow signUpWindow = new LeaveRequestWindow();
         signUpWindow.Show();
 
         this.Close();
