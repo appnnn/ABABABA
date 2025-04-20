@@ -16,10 +16,13 @@
 
     <Border CornerRadius="10">
         <Border.Background>
-            <ImageBrush ImageSource="/Images/Untitled.jpg"/>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#EEF7FF" Offset="0.0"/>
+                <GradientStop Color="#CDE8E5" Offset="1"/>
+            </LinearGradientBrush>
         </Border.Background>
         <Border CornerRadius="10"
-            BorderThickness="1">
+    BorderThickness="1">
 
             <Border.BorderBrush>
                 <SolidColorBrush Color="#CCCCCC"/>
@@ -40,23 +43,23 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <Image Grid.Column="0"
-                               Source="/Images/ribbon_8626105.png"
-                               Height="30"
-                               VerticalAlignment="Center"
-                               Margin="15,10,10,0"/>
+                       Source="/Images/ribbon_8626105.png"
+                       Height="30"
+                       VerticalAlignment="Center"
+                       Margin="15,10,10,0"/>
                         <Button x:Name="btnMin"
-                                Grid.Column="2"
-                                Style="{StaticResource MinimizeBtn}"
-                                HorizontalAlignment="Right"
-                                Click="btnMin_Click">
+                        Grid.Column="2"
+                        Style="{StaticResource MinimizeBtn}"
+                        HorizontalAlignment="Right"
+                        Click="btnMin_Click">
                             <Button.Content>
                                 <Image Source="/Images/delete.png" Height="15" Width="30" Opacity="0.5"/>
                             </Button.Content>
                         </Button>
                         <Button x:Name="btnClose"
-                                Grid.Column="3"
-                                Style="{StaticResource CloseBtn}"
-                                Click="btnClose_Click">
+                        Grid.Column="3"
+                        Style="{StaticResource CloseBtn}"
+                        Click="btnClose_Click">
                             <Button.Content>
                                 <Image Source="/Images/close.png" Height="15" Width="30"/>
                             </Button.Content>
@@ -64,7 +67,7 @@
                     </Grid>
                 </Border>
 
-                <Grid Grid.Row="1" Margin="10">
+                <Grid Grid.Row="1" Margin="5">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
