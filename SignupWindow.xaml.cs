@@ -160,7 +160,6 @@ namespace WpfApp1
                 return;
             }
 
-            // ✅ Retrieve Step One data
             string firstName = ((TextBox)RegistrationStepOne.Children[0]).Text.Trim();
             string lastName = ((TextBox)RegistrationStepOne.Children[1]).Text.Trim();
             string address = ((TextBox)RegistrationStepOne.Children[2]).Text.Trim();
