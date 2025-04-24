@@ -1,4 +1,5 @@
-﻿using HR_Application.View.HR_Role.UserControls;
+﻿using HR_Application.Utils;
+using HR_Application.View.HR_Role.UserControls;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -113,6 +114,17 @@ namespace HR_Application.View
 
 
         // Event handlers for menu buttons
+        private void LogOutButton_Click(object sender, RoutedEventArgs e)
+        {
+            SessionManager.Logout();
+
+            var loginWindow = new LoginWindow(App.AuthServiceInstance);
+
+            loginWindow.Show(); 
+
+            this.Close();
+        }
+        
         private void HomeButton_Click(object sender, RoutedEventArgs e)
         {
             LoadHome();

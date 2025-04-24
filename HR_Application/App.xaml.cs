@@ -27,31 +27,56 @@ namespace HR_Application
 {
     public partial class App : Application
     {
+        //    protected override void OnStartup(StartupEventArgs e)
+        //    {
+        //        base.OnStartup(e);
+
+        //        try
+        //        {
+        //            // Step 1: Initialize the repository
+        //            var userRepository = new UserRepository();
+
+        //            // Step 2: Initialize the AuthService
+        //            var authService = new AuthService(userRepository);
+
+        //            // Step 3: Show the LoginWindow
+        //            var loginWindow = new LoginWindow(authService);
+
+        //            // Set the LoginWindow as the main application window
+        //            MainWindow = loginWindow;
+        //            loginWindow.Show();
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            // Log the exception details
+        //            MessageBox.Show($"An error occurred: {ex.Message}\n\nStack Trace:\n{ex.StackTrace}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        //            Shutdown(); // Shut down the application if an error occurs
+        //        }
+        //    }
+
+
+        public static AuthService AuthServiceInstance { get; private set; }
+
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
 
             try
             {
-                // Step 1: Initialize the repository
                 var userRepository = new UserRepository();
+                AuthServiceInstance = new AuthService(userRepository); // <- store globally
 
-                // Step 2: Initialize the AuthService
-                var authService = new AuthService(userRepository);
-
-                // Step 3: Show the LoginWindow
-                var loginWindow = new LoginWindow(authService);
-
-                // Set the LoginWindow as the main application window
+                var loginWindow = new LoginWindow(AuthServiceInstance);
                 MainWindow = loginWindow;
                 loginWindow.Show();
             }
             catch (Exception ex)
             {
-                // Log the exception details
                 MessageBox.Show($"An error occurred: {ex.Message}\n\nStack Trace:\n{ex.StackTrace}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                Shutdown(); // Shut down the application if an error occurs
+                Shutdown();
             }
         }
+
     }
+    
 }
