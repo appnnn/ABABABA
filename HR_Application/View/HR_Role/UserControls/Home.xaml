@@ -1,0 +1,158 @@
+﻿<UserControl x:Class="HR_Application.View.HR_Role.UserControls.Home"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HR_Application.View.HR_Role.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+
+    <Grid Background="#f5f6fa" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Welcome -->
+            <RowDefinition Height="Auto"/>
+            <!-- Stats -->
+            <RowDefinition Height="*"/>
+            <!-- Bottom -->
+        </Grid.RowDefinitions>
+
+        <!-- Welcome Section -->
+        <Border Grid.Row="0" Background="White" CornerRadius="10" Padding="20" Margin="0 0 0 20">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <!--<Ellipse Width="60" Height="60" Fill="#3498db" Margin="0 0 20 0"/>-->
+                <StackPanel>
+                    <TextBlock Text="Welcome back!, 👋" FontSize="60" FontWeight="Bold" Foreground="#2c3e50"/>
+                    <TextBlock Text="{Binding CurrentUser.FirstName}" FontSize="40" FontWeight="Bold" Foreground="#34495e"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <!-- Stat Cards -->
+        <Grid Grid.Row="1" Margin="0 0 0 20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0" Background="White" CornerRadius="12" Padding="15" Margin="0 5 0 5">
+                <StackPanel>
+                    <TextBlock Text="Total Employees" FontSize="25" Foreground="#7f8c8d"/>
+                    <TextBlock Text="154" FontSize="40" FontWeight="Bold" Foreground="#2c3e50"/>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Column="1" Background="White" CornerRadius="12" Padding="15" Margin="10 5 10 5">
+                <StackPanel>
+                    <TextBlock Text="Pending Leaves" FontSize="25" Foreground="#7f8c8d"/>
+                    <TextBlock Text="12" FontSize="40" FontWeight="Bold" Foreground="#2c3e50"/>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Column="2" Background="White" CornerRadius="12" Padding="15" Margin="0 5 0 5">
+                <StackPanel>
+                    <TextBlock Text="Payrolls Processed" FontSize="25" Foreground="#7f8c8d"/>
+                    <TextBlock Text="98%" FontSize="40" FontWeight="Bold" Foreground="#2c3e50"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <!-- Bottom Panels -->
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Recent Activity Panel -->
+            <Border Grid.Column="0" Background="White" CornerRadius="12" Padding="20" Margin="0 0 10 0">
+                <StackPanel>
+                    <TextBlock Text="Recent Activities" FontSize="25" FontWeight="SemiBold" Margin="0 0 10 10"/>
+                    <ListBox BorderThickness="0">
+                        <ListBoxItem Content="✔️ John approved a leave request"/>
+                        <ListBoxItem Content="🟡 Payroll updated for March"/>
+                        <ListBoxItem Content="🟢 New employee added to IT Department"/>
+                    </ListBox>
+                </StackPanel>
+            </Border>
+
+            <!-- Quick Access Panel -->
+            <!-- Quick Access Panel -->
+            <Border Grid.Column="1" Background="White" CornerRadius="12" Padding="20" Margin="10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Title -->
+                    <TextBlock Text="Quick Access"
+                   FontSize="25"
+                   FontWeight="SemiBold"
+                   Grid.Row="0"
+                   Margin="0 0 0 15" />
+
+                    <!-- Card Buttons -->
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Card 1 -->
+                        <Border Grid.Column="0"
+                            Background="#3498db"
+                            CornerRadius="10"
+                            Padding="15"
+                            Margin="10"
+                            Height="100"
+                            Cursor="Hand"
+                            Effect="{DynamicResource DropShadowEffect}">
+                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Text="➕" FontSize="24" Foreground="White" TextAlignment="Center"/>
+                                <TextBlock Text="Add Employee" FontSize="14" FontWeight="Bold" Foreground="White" TextAlignment="Center"/>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Card 2 -->
+                        <Border Grid.Column="1"
+                    Background="#2ecc71"
+                    CornerRadius="10"
+                    Padding="15"
+                    Margin="10"
+                    Height="100"
+                    Cursor="Hand"
+                    Effect="{DynamicResource DropShadowEffect}">
+                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Text="📁" FontSize="24" Foreground="White" TextAlignment="Center"/>
+                                <TextBlock Text="View Leaves" FontSize="14" FontWeight="Bold" Foreground="White" TextAlignment="Center"/>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Card 3 -->
+                        <Border Grid.Column="2"
+                    Background="#f39c12"
+                    CornerRadius="10"
+                    Padding="15"
+                    Margin="10"
+                    Height="100"
+                    Cursor="Hand"
+                    Effect="{DynamicResource DropShadowEffect}">
+                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Text="📊" FontSize="24" Foreground="White" TextAlignment="Center"/>
+                                <TextBlock Text="Payroll" FontSize="14" FontWeight="Bold" Foreground="White" TextAlignment="Center"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </Grid>
+            </Border>
+
+        </Grid>
+    </Grid>
+</UserControl>
