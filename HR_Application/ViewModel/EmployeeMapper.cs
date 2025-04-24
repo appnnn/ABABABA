@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 
-namespace HR_Application.Data
+namespace HR_Application.ViewModel
 {
     public static class EmployeeMapper
     {

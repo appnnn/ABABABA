@@ -1,4 +1,5 @@
 ﻿using HR_Application.Model;
+using HR_Application.ViewModel;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
