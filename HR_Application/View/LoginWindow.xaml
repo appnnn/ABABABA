@@ -125,7 +125,7 @@
             <Grid Canvas.Left="667" Canvas.Top="359" Width="332" Height="47">
 
                 <!-- TextBox for Username -->
-                <TextBox x:Name="UsernameTextBox" GotFocus="UsernameTextBox_GotFocus" LostFocus="UsernameTextBox_LostFocus" TextWrapping="Wrap"  VerticalAlignment="Top" HorizontalAlignment="Center" TextAlignment="Left" VerticalContentAlignment="Center" Height="48" Width="332" Margin="0,-21,0,0" Padding="10,0,0,0">
+                <TextBox x:Name="UsernameTextBox" TabIndex="0" GotFocus="UsernameTextBox_GotFocus" LostFocus="UsernameTextBox_LostFocus" TextWrapping="Wrap"  VerticalAlignment="Top" HorizontalAlignment="Center" TextAlignment="Left" VerticalContentAlignment="Center" Height="48" Width="332" Margin="0,-21,0,0" Padding="10,0,0,0">
                     <TextBox.Style>
                         <Style TargetType="TextBox">
                             <Setter Property="Template">
@@ -152,6 +152,7 @@
                 <!-- Placeholder Text -->
 
                 <PasswordBox x:Name="PasswordBox"
+                    TabIndex="1"
                     Width="332"
                     Height="47"
                     BorderThickness="0"
@@ -189,7 +190,7 @@
 
             <!--Login Button-->
 
-            <Button Content="LogIn" Height="47" Canvas.Left="667" Canvas.Top="477" Width="332" Click="Login_Button"
+            <Button TabIndex="2" Content="LogIn" Height="47" Canvas.Left="667" Canvas.Top="477" Width="332" Click="Login_Button"
                 VerticalAlignment="Center" FontWeight="Bold" FontStyle="Normal" HorizontalAlignment="Left" FontSize="22" >
                 <Button.Style>
                     <Style TargetType="Button">
