@@ -12,9 +12,9 @@ namespace HR_Application.ViewModel
     {
         private static readonly Random _random = new Random();
 
-        public static List<Member> MapEmployeesToMembers(List<Employee> employees)
+        public static List<EmployeeDisplayModel> MapEmployeesToEmployeeDisplayModel(List<Employee> employees)
         {
-            return employees.Select(employee => new Member
+            return employees.Select(employee => new EmployeeDisplayModel
             {
                 Character = employee.FirstName.Length > 0 ? employee.FirstName[0].ToString() : "?", // Default to "?" if FirstName is empty
                 BgColor = GetRandomBrush(),

@@ -7,7 +7,7 @@ using System.Windows.Media;
 
 namespace HR_Application.Model
 {
-    public class Member
+    public class EmployeeDisplayModel
     {
         public string Character { get; set; } // First character of the first name
         public Brush BgColor { get; set; }   // Random background color

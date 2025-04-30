@@ -28,7 +28,8 @@
 
 
         <!--Add Button-->
-        <Button  Grid.Row="0" Style="{StaticResource addButton}" Click="addButton_Click">
+        <!--<Button  Grid.Row="0" Style="{StaticResource addButton}" Click="addButton_Click">-->
+        <Button  Grid.Row="0" Style="{StaticResource addButton}" Command="{Binding AddEmployeeCommand}">
             <StackPanel Orientation="Horizontal">
                 <Icon:PackIconMaterial Kind="Plus" VerticalAlignment="Center" Width="11" Height="11" Margin="0 1 8 0"/>
                 <TextBlock Text="Add New Employee"/>
@@ -66,7 +67,12 @@
         <!--<CheckBox Style="{DynamicResource CheckBoxStyle1}" Grid.Row="6" Content="asdsdsd"/>-->
 
         <!--Members Data Grid-->
-        <DataGrid Grid.Row="4" Style="{DynamicResource DataGridStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}"  x:Name="membersDataGrid">
+        <DataGrid Grid.Row="4" Style="{DynamicResource DataGridStyle1}" 
+                  CellStyle="{DynamicResource DataGridCellStyle1}" 
+                  ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
+                  RowStyle="{DynamicResource DataGridRowStyle1}"  
+                  x:Name="membersDataGrid"
+                  ItemsSource="{Binding EmployeeDisplay}">
             <DataGrid.Columns>
                 <!--<DataGridCheckBoxColumn CanUserResize="False" Width="auto" ElementStyle="{StaticResource CheckBoxStyle1}">-->
                     <!--<DataGridCheckBoxColumn.HeaderTemplate>
