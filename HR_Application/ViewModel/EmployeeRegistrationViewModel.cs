@@ -1,5 +1,7 @@
 ﻿using HR_Application.Data;
 using HR_Application.Model;
+using HR_Application.Repositories;
+using HR_Application.View.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,19 +12,22 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 
 
+
 namespace HR_Application.ViewModel
 {
     public class EmployeeRegistrationViewModel : INotifyPropertyChanged
     {
         private Employee _employee = new Employee();
+        private readonly IEmployeeRepository _employeeRepository;
 
-        public EmployeeRegistrationViewModel()
+
+        public EmployeeRegistrationViewModel(IEmployeeRepository employeeRepository)
         {
+            _employeeRepository = employeeRepository; // initialize the repository
             // Set default to today's date
             DateOfBirth = DateTime.Today;
             JoiningDate = DateTime.Today;
             SaveCommand = new RelayCommand(SaveEmployee);
-
         }
 
         // Properties for Binding
@@ -95,11 +100,11 @@ namespace HR_Application.ViewModel
 
         }
 
-        public string ProfilePicturePath
-        {
-            get => _employee.ProfilePicturePath;
-            set { _employee.ProfilePicturePath = value; OnPropertyChanged(); }
-        }
+        //public string ProfilePicturePath
+        //{
+        //    get => _employee.ProfilePicturePath;
+        //    set { _employee.ProfilePicturePath = value; OnPropertyChanged(); }
+        //}
 
         //public string Username
         //{
@@ -119,6 +124,10 @@ namespace HR_Application.ViewModel
             set { _employee.Role = value; OnPropertyChanged(); }
         }
 
+        public List<string> DepartmentsList => Departments.DepartmentsList;
+        public List<string> RolesList => Roles.RolesList;
+        public List<string> PositionsList => Positions.PositionsList;
+        public List<string> GendersList => Genders.GenderList;
         public string Gender
         {
             get => _employee.Gender;
@@ -152,7 +161,8 @@ namespace HR_Application.ViewModel
 
             try
             {
-                InsertEmployee.InsertEmployeeDB(_employee);
+                //InsertEmployee.InsertEmployeeDB(_employee);
+                _employeeRepository.AddEmployee(_employee);
                 System.Windows.MessageBox.Show("Employee registered successfully!", "Success", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Information);
             }
 

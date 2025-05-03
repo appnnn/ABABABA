@@ -1,4 +1,5 @@
-﻿using HR_Application.ViewModel;
+﻿using HR_Application.Repositories;
+using HR_Application.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,15 +20,25 @@ namespace HR_Application.View
     public partial class EmployeeRegistrationWindow : Window
     {
 
+        //public EmployeeRegistrationWindow()
+        //{
+        //    InitializeComponent();
+        //    DataContextChanged += OnDataContextChanged;
+        //}
+
+        //private void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        //{
+
+        //}
+
         public EmployeeRegistrationWindow()
         {
             InitializeComponent();
-            DataContextChanged += OnDataContextChanged;
+
+            // Inject concrete implementation of IEmployeeRepository
+            DataContext = new EmployeeRegistrationViewModel(new EmployeeRepository());
         }
 
-        private void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            
-        }
+
     }
 }

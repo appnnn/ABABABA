@@ -12,7 +12,8 @@ namespace HR_Application.Data
     public static class DbConnectionHelper
     {
         //private const string ConnectionString = "Server=DESKTOP-AANH3TO\\SQLEXPRESS;Database=HR_Application;Trusted_Connection=True;Encrypt=True;TrustServerCertificate=True;";
-        private const string ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"D:\\lessons\\2nd year 2nd sem\\visual programming\\group_project\\asdf.mdf\";Integrated Security=True;Connect Timeout=30";
+        //private const string ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"D:\\lessons\\2nd year 2nd sem\\visual programming\\group_project\\asdf.mdf\";Integrated Security=True;Connect Timeout=30";
+        private const string ConnectionString = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=\"D:\\lessons\\2nd year 2nd sem\\visual programming\\group_project\\ABABABA\\HR_Application\\Database\\HRM_Database.mdf\";Integrated Security=True";
 
         public static SqlConnection GetConnection()
         {

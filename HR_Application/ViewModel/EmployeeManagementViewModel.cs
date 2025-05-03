@@ -1,5 +1,6 @@
 ﻿using HR_Application.Model;
 using HR_Application.Repositories;
+using HR_Application.Services;
 using HR_Application.View;
 using System;
 using System.Collections.Generic;
@@ -42,6 +43,9 @@ namespace HR_Application.ViewModel
             // Optionally load immediately
             LoadEmployees();
         }
+
+        //for binding shareddashboard data
+        public sharedDashboardData SharedData => sharedDashboardData.Instance;
 
         private void LoadEmployees()
         {

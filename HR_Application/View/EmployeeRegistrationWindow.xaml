@@ -8,9 +8,9 @@
         Title="EmployeeRegistrationWindow" Height="600" Width="400"
         WindowStartupLocation="CenterScreen">
 
-        <Window.DataContext>
+        <!--<Window.DataContext>
             <local:EmployeeRegistrationViewModel />
-        </Window.DataContext>
+        </Window.DataContext>-->
 
     <Grid Margin="10">
         <StackPanel>
@@ -29,11 +29,11 @@
 
             <TextBlock Text="Department" />
             <ComboBox Text="{Binding Department, UpdateSourceTrigger=PropertyChanged}"
-                      ItemsSource="{Binding Source={x:Static local:Departments.DepartmentsList}}" Margin="0 0 0 10"/>
+                      ItemsSource="{Binding DepartmentsList}" Margin="0 0 0 10"/>
 
             <TextBlock Text="Position" />
             <ComboBox Text="{Binding Position, UpdateSourceTrigger=PropertyChanged}"
-                      ItemsSource="{Binding Source={x:Static local:Postions.PostionsList}}" Margin="0 0 0 10"/>
+                      ItemsSource="{Binding PositionsList}" Margin="0 0 0 10"/>
 
             <!--<TextBlock Text="Salary" />
             <TextBox Text="{Binding Salary, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 10"/>-->
@@ -56,11 +56,11 @@
 
             <TextBlock Text="Role Access" />
             <ComboBox Text="{Binding Role, UpdateSourceTrigger=PropertyChanged}"
-                     ItemsSource="{Binding Source={x:Static local:Roles.RolesList}}" Margin="0 0 0 10"/>
+                     ItemsSource="{Binding RolesList}" Margin="0 0 0 10"/>
 
             <TextBlock Text="Gender" />
             <ComboBox SelectedItem="{Binding Gender, UpdateSourceTrigger=PropertyChanged}" 
-                      ItemsSource="{Binding Source={x:Static local:Genders.GenderList}}"  Margin="0 0 0 10"/>
+                      ItemsSource="{Binding GendersList}"  Margin="0 0 0 10"/>
 
             <TextBlock Text="Address" />
             <TextBox Text="{Binding Address, UpdateSourceTrigger=PropertyChanged}" Margin="0 0 0 10"/>

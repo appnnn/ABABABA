@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HR_Application.ViewModel
+namespace HR_Application.View.Helpers
 {
     public static class Genders
     {
@@ -34,9 +34,9 @@ namespace HR_Application.ViewModel
             "Finance"
         };
     }
-    public static class Postions
+    public static class Positions
     {
-        public static List<string> PostionsList { get; } = new List<string>
+        public static List<string> PositionsList { get; } = new List<string>
         {
             "Executive",
             "Manager",

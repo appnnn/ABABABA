@@ -13,6 +13,8 @@
 	<SolidColorBrush x:Key="Black_PrimaryColor" Color="#082f49" />
 	<SolidColorBrush x:Key="White_PrimaryColor" Color="#f0f9ff" />
 
+    <SolidColorBrush x:Key="Header_Grey" Color="#69717d" />
+    
 	<SolidColorBrush x:Key="HoverTopbarBtn_Foreground" Color="#38bdf8" />
 	<SolidColorBrush x:Key="HoverTopbarBtn_Background" Color="#38bdf8" />
 

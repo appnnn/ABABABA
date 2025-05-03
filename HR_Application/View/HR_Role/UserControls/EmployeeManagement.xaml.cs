@@ -19,6 +19,7 @@ using System.Windows.Shapes;
 using HR_Application.Model;
 using HR_Application.Repositories;
 using HR_Application.ViewModel;
+using HR_Application.View.Helpers;
 
 namespace HR_Application.View.HR_Role.UserControls
 {
@@ -68,6 +69,14 @@ namespace HR_Application.View.HR_Role.UserControls
             // Inject repository manually (until full DI is set up)
             var repo = new EmployeeRepository(); // Or resolve from DI container later
             DataContext = new EmployeeManagementViewModel(repo);
+
+            //DataContext = sharedDashboardData.Instance;
+            //sharedDashboardData.Instance.Refresh();
         }
+    
+
+
     }
+
+
 }

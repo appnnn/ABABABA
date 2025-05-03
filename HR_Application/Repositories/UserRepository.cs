@@ -16,15 +16,15 @@ namespace HR_Application.Repositories
             User user = null;
 
             // Query to fetch user by username
-            //string query = "SELECT Username, Role, Password , FirstName, LastName FROM RegisterUsers  WHERE Username = @Username";
-            string query = "SELECT username, position , password , firstname, lastname FROM employees  WHERE username = @username";
+            string query = "SELECT Username, Role, Password , FirstName, LastName FROM Employee  WHERE Username = @Username";
+            //string query = "SELECT username, position , password , firstname, lastname FROM employees  WHERE username = @username";
 
             using (var connection = DbConnectionHelper.GetConnection())
             {
                 connection.Open();
                 using (var command = new SqlCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@username", username);
+                    command.Parameters.AddWithValue("@Username", username);
 
                     using (var reader = command.ExecuteReader())
                     {
@@ -32,11 +32,11 @@ namespace HR_Application.Repositories
                         {
                             user = new User
                             {
-                                Username = reader["username"].ToString(),
-                                Role = reader["position"].ToString(),
-                                Password = reader["password"].ToString(),
-                                FirstName = reader["firstname"].ToString(),
-                                LastName = reader["lastname"].ToString()
+                                Username = reader["Username"].ToString(),
+                                Role = reader["Role"].ToString(),
+                                Password = reader["Password"].ToString(),
+                                FirstName = reader["FirstName"].ToString(),
+                                LastName = reader["LastName"].ToString()
                             };
                         }
                     }

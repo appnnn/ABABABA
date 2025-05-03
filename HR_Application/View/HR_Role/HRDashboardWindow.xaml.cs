@@ -40,6 +40,11 @@ namespace HR_Application.View
             MainContentArea.Content = new EmployeeManagement();
         }
 
+        private void LoadDepartmentManagement()
+        {
+            MainContentArea.Content = new DepartmentManagement();
+        }
+
         private void LoadAttendanceAndLeave()
         {
             MainContentArea.Content = new AttendanceAndLeave();
@@ -135,6 +140,10 @@ namespace HR_Application.View
             LoadEmployeeManagement();
         }
 
+        private void DepartmentManagementButton_Click(object sender, RoutedEventArgs e)
+        {
+            LoadDepartmentManagement();
+        }
         private void AttendanceAndLeaveButton_Click(object sender, RoutedEventArgs e)
         {
             LoadAttendanceAndLeave();

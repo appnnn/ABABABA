@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows;
 
-namespace HR_Application.ViewModel
+namespace HR_Application.View.Helpers
 {
     public static class PasswordBoxHelper
     {

@@ -1,4 +1,5 @@
 ﻿using HR_Application.Model;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media;
 
-namespace HR_Application.ViewModel
+namespace HR_Application.Services
 {
     public static class EmployeeMapper
     {
@@ -14,7 +15,7 @@ namespace HR_Application.ViewModel
 
         public static List<EmployeeDisplayModel> MapEmployeesToEmployeeDisplayModel(List<Employee> employees)
         {
-            return employees.Select(employee => new EmployeeDisplayModel
+            return employees.Select((employee, index) => new EmployeeDisplayModel
             {
                 Character = employee.FirstName.Length > 0 ? employee.FirstName[0].ToString() : "?", // Default to "?" if FirstName is empty
                 BgColor = GetRandomBrush(),
@@ -27,8 +28,9 @@ namespace HR_Application.ViewModel
                 Email = employee.Email,
                 PhoneNumber = employee.PhoneNumber,
                 Address = employee.Address,
-                UserID = employee.UserId,
-                JoinDate = DateOnly.FromDateTime(employee.JoiningDate)
+                EmployeeID = employee.EmployeeID,
+                JoinDate = DateOnly.FromDateTime(employee.JoiningDate),
+                RowNumber = index + 1
 
             }).ToList();
         }

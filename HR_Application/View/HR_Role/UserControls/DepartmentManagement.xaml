@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="HR_Application.View.HR_Role.UserControls.DepartmentManagement"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HR_Application.View.HR_Role.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!--page Title-->
+        <TextBlock Text="Department Management" Grid.Row="0" FontSize="32" FontWeight="SemiBold" Margin="0 20 0 0"
+            HorizontalAlignment="Left" Foreground="#121518"/>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+                
+            <StackPanel>
+                <TextBlock Text="Current Department List"  FontSize="25" FontWeight="SemiBold" Margin="0 10 0 0"
+                    HorizontalAlignment="Left" Foreground="{StaticResource Header_Grey}"/>
+                
+                <!-- Department List -->
+                <DataGrid Grid.Column="0" 
+                          ItemsSource="{Binding DepartmentModel}" 
+                          SelectedItem="{Binding SelectedDepartment}" 
+                          Style="{DynamicResource DataGridStyle1}" 
+                          CellStyle="{DynamicResource DataGridCellStyle1}" 
+                          ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" 
+                          RowStyle="{DynamicResource DataGridRowStyle1}"  
+                          AutoGenerateColumns="False" 
+                          Margin="0 20 0 10">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Department ID" Binding="{Binding DepartmentID}" Width="Auto" />
+                        <DataGridTextColumn Header="Department Name" Binding="{Binding DepartmentName}" Width="200" />
+                        <!--<DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="300" />-->
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </Grid>
+
+        <!-- Actions -->
+        <!--<StackPanel Grid.Row="2" Orientation="Vertical" Margin="0 10 0 0">
+            <Button Content="Add Department" Command="{Binding AddDepartmentCommand}" Margin="0 5" />
+            <Button Content="Update Department" Command="{Binding UpdateDepartmentCommand}" Margin="0 5" />
+            <Button Content="Delete Department" Command="{Binding DeleteDepartmentCommand}" Margin="0 5" />
+            <Button Content="Assign Employee" Command="{Binding AssignEmployeeCommand}" Margin="0 5" />
+        </StackPanel>-->
+    </Grid>
+
+
+</UserControl>

@@ -94,6 +94,13 @@
                                 </StackPanel>
                             </Button>
 
+                            <Button Style="{StaticResource menuButton}" Click="DepartmentManagementButton_Click">
+                                <StackPanel Orientation="Horizontal">
+                                    <Icon:PackIconMaterial Kind="Sitemap" Style="{StaticResource menuButtonIcon}"/>
+                                    <TextBlock Text="Department Management" />
+                                </StackPanel>
+                            </Button>
+                            
                             <Button Style="{StaticResource menuButton}" Click="AttendanceAndLeaveButton_Click">
                                 <StackPanel Orientation="Horizontal">
                                     <Icon:PackIconMaterial Kind="ArrowRightBox" Style="{StaticResource menuButtonIcon}"/>
@@ -188,7 +195,7 @@
 
                 <!--<localusercontrol:Home x:Name="EmployeeManagement" Grid.Row="2"   Margin="0,0,0,0" />-->
                 <!--<localusercontrol:EmployeeManagement x:Name="EmployeeManagement" Grid.Row="2"   Margin="0,0,0,0" />-->
-                <!--<localusercontrol:Home x:Name="EmployeeManagement" Grid.Row="2"   Margin="0,0,0,0" />-->
+                <localusercontrol:DepartmentManagement x:Name="EmployeeManagement" Grid.Row="2"   Margin="0,0,0,0" />
                 <!--<localusercontrol:Home x:Name="EmployeeManagement" Grid.Row="2"   Margin="0,0,0,0" />-->
                 <!--<localusercontrol:Home x:Name="EmployeeManagement" Grid.Row="2"   Margin="0,0,0,0" />-->
                 <!--<localusercontrol:Home x:Name="EmployeeManagement" Grid.Row="2"   Margin="0,0,0,0" />-->

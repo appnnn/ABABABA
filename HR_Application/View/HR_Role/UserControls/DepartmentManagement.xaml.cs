@@ -1,4 +1,5 @@
-﻿using HR_Application.Model;
+﻿using HR_Application.Repositories;
+using HR_Application.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,19 +14,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using HR_Application.ViewModel;
 
 namespace HR_Application.View.HR_Role.UserControls
 {
-    public partial class Home : UserControl
+    /// <summary>
+    /// Interaction logic for DepartmentManagement.xaml
+    /// </summary>
+    public partial class DepartmentManagement : UserControl
     {
-        public Home()
+        public DepartmentManagement()
         {
             InitializeComponent();
-            //var dashboardInfo = sharedDashboardData.Instance.DashboardInfo;
-            DataContext = sharedDashboardData.Instance;
-            sharedDashboardData.Instance.Refresh();
-
+            DataContext = new DepartmentManagementViewModel(new DepartmentRepository());
         }
+       
     }
 }

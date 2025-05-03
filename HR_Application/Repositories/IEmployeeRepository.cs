@@ -12,5 +12,7 @@ namespace HR_Application.Repositories
         void AddEmployee(Employee employee);
         List<Employee> GetAllEmployees();
         //Employee GetEmployeeById(int id);
+
+        DashboardInfoModel GetDashboardInfo();
     }
 }

@@ -9,6 +9,7 @@ namespace HR_Application.Model
 {
     public class EmployeeDisplayModel
     {
+        public decimal RowNumber { get; set; }
         public string Character { get; set; } // First character of the first name
         public Brush BgColor { get; set; }   // Random background color
         public string Name { get; set; }     // FirstName + LastName
@@ -20,7 +21,7 @@ namespace HR_Application.Model
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
-        public decimal UserID { get; set; }
+        public string EmployeeID { get; set; }
         public DateOnly JoinDate { get; set; }
     }
 }
